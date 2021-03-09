@@ -30,13 +30,12 @@ Definition: Given a CA SEQUENCE of length L, find other related sequences to the
 Classical alignment methods directly compared sequences to determine alignment
 HMM (Hidden markov machine) alignment methods compare HMM to other HMM by using them as profiles.
 The alignment tool used in Baker group is HHBlits
+Some additional parameters used in baker are "HHblits (version 3.0.3) (28) with default parameters at 4 different e-value cutoffs: 1e−40, 1e−10, 1e−3, and 1." (Baker)
 
-"HHblits (version 3.0.3) (28) with default parameters at 4 different e-value cutoffs: 1e−40, 1e−10, 1e−3, and 1." (Baker)
-
-We ran hhblits with e=.001 n=1
- -n     [1,8]   number of iterations (default=2)
- -e     [0,1]   E-value cutoff for inclusion in result alignment (def=0.001)
- -d database '/raid0/uniclust/uniclust30_2018_08/uniclust30_2018_08' 
+We ran hhblits with -e .001 -n 1
+* -n     [1,8]   number of iterations (default=2)
+* -e     [0,1]   E-value cutoff for inclusion in result alignment (def=0.001)
+* -d database '/raid0/uniclust/uniclust30_2018_08/uniclust30_2018_08' 
 
 The Expect value is a parameter that describes the number of hits one can "expect" to see by chance when searching a database of a particular size. It decreases exponentially as the Score (S) of the match increases. Essentially, the E value describes the random background noise.
 
