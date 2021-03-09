@@ -1,0 +1,23 @@
+can select any element
+if every chain has a minimal, then E e minimal
+Yesterday this problem seemed so easy
+But today I am struggling
+What did i think of yesterday?
+
+select an element suppose it is not minimal.
+let B be the set of lower bounds for this element
+consider all chains in this set B
+
+Then for any chain it has a lower bound in the set B
+
+Is there a way to reduce or combine chains?
+Yes if they are linearly ordered
+What if they are not linearly ordered?
+
+Is it possible to impose some linear order?
+
+Consider the set of all chains involving a
+Call a chain less than another chain if it is contained
+c1,c2,c3
+
+
