@@ -44,14 +44,14 @@ The Expect value is a parameter that describes the number of hits one can "expec
 It took 4 days to process and create alignments for 85756 chains in uniclust30_2018_08 with 64 separate processes
 
 # MSA PAIR STATISTICS
-The approach is from Baker group
-Several information are computed from the sequence and MSA for insertion into the neural network pipeline
-First, the MSA is converted into a one-hot encoded matrix of shape NxLx21 - (Number sequences in MSA)x(sequence Length)x(aminoacids+gap)
+The approach is from Baker group.
+Several information are computed from the sequence and MSA for insertion into the neural network pipeline.
+First, the MSA is converted into a one-hot encoded matrix of shape NxLx21 - (Number sequences in MSA)x(sequence Length)x(aminoacids+gap).
 From this result, the 1D FEATURES and DCA FEATURES are computed.
 Finally, they are combined into one feature matrix.
 
 ## 1D FEATURES
-1D FEATURES include, sequence information, PSSM, and entropy
+1D FEATURES include, sequence information, PSSM, and entropy.
 1. The sequence information has shape Lx20
 2. The PSSM has shape Lx21
 3. The entropy has shape Lx1
@@ -62,10 +62,10 @@ Then they are combined into a single matrix of shape LxLx84
 ### 1. sequence information
 The sequence of the matrix is one-hot encoded into a matrix of shape Lx20. L is the length of the sequence and 20 is the amino acids.
 For example if there was a 3 letter amino alphabet with the sequence ABBC, it would be encoded into a shape of 4x3 as
-A - 100
-B - 010
-B - 010
-C - 001
+* A - 100
+* B - 010
+* B - 010
+* C - 001
 
 ### 2. PSSM
 Position specific scoring matrix gives a probability of a specific position in L being a certain amino acid or a gap.
@@ -77,7 +77,7 @@ Entropy is calculated for each position in L, resulting in a matrix of shape Lx1
 
 ## DCA FEATURES
 DCA (direct coupling analysis) features use MSA to create inverse covariance matrix and APC 
-* Inverse covariance matrix has shape (L*21)x(L*21) 
+* Inverse covariance matrix has shape (L\*21)x(L\*21) 
 	* They are indexed over the ordered pair i,A. where i is the position in the sequence and A is one of 21 (amino acid+gap)
 	* The expected value is computed for each i,A by counting the weighted sum of the frequencies of i,A occuring in the MSA
 		* See f_i(A) and f_i,j(A,B) in [Baker pg7].
@@ -87,4 +87,4 @@ DCA (direct coupling analysis) features use MSA to create inverse covariance mat
 * APC (average product correlation score) has shape LxLx1
 	* It is a summary statistic from the inverse covariance matrix [eq 3,4 Baker pg7]
 
-These two features are combined by first reshaping the inverse covariance matrix into a matrix of shape LxLx(21*21) and then concatenating it with the APC into a final matrix of shape LxLx(21*21+1) =  LxL(442)
+These two features are combined by first reshaping the inverse covariance matrix into a matrix of shape LxLx(21\*21) and then concatenating it with the APC into a final matrix of shape LxLx(21\*21+1) =  LxL(442)
