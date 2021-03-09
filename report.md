@@ -26,6 +26,7 @@ It took 2 days to parse and create CA matrices for 85756 chains
 
 Multiple Sequence Alignment 
 Definition: Given a CA SEQUENCE of length L, find other related sequences to the sequence, which are aligned to the original with gaps, replacement, and deletion. The collection of sequences with length L as a result from this process is called a MSA.
+This process will output an MSA alignment file
 
 ## HHblits (Soedinglab)
 Classical alignment methods directly compared sequences to determine alignment
